@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Jogo da adivinhação</h3>
+    <label>Digite um número de 1 a 50</label>
+    <input id="visor" type="password" value=""><br>
+    <label>Número?</label>
+    <input id="dialogo" type="text">
+    <input type="button" value="Clique aqui" onclick="clicar()">
+    <hr>
+    <input type="button" value="Acertei" onclick="Acertei()">
+    <input type="button" value="Errei" onclick="Errei()">
+    <div id="resposta">
+    
+    </div>
+
+    <script>
+        function clicar(){
+        var texto = document.getElementById('visor').value
+        var delay=6000; //1 seconds
+        setTimeout(function(){document.getElementById('dialogo').value=mostrar},delay);
+        mostrar = texto
+        if (mostrar <= 50){
+            setInterval(function() {(document.getElementById('dialogo').value=mostrar)}, 6000);
+
+        }else{
+            alert('Valor ultrapassou o limite')
+            setInterval(function() {(document.getElementById('dialogo').value="")});
+        }
+    }
+        function Acertei(){
+            var a = document.getElementById('resposta')
+            a.innerText = 'Uaaaaal será que na proxima eu acerto?' 
+        }
+        function Errei(){
+            var a = document.getElementById('resposta')
+            a.innerText = 'Que pena! vou fazer melhor na proxima vez :(' 
+        }
+    </script>
+</body>
+<style>
+    input#dialogo{
+        margin-top: 5px;
+        width: 130px;
+    }
+</style>
+</html>
